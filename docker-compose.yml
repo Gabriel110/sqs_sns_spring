@@ -1,0 +1,30 @@
+version: '3.3'
+
+services:
+  localstack:
+    container_name: localstack
+    build: ./ci/infrastructure
+    ports:
+      - "4566:4566"
+      - "4569:4569"
+      - "4576:4576"
+      - "4575:4575"
+    environment:
+      - NO_PROXY=localhost
+      - SERVICES=${SERVICES-dynamodb,sqs,sns,s3}
+      - DEBUG=1
+      - DATA_DIR=${DATA_DIR-}
+      - PORT_WEB_UI=${PORT_WEB_UI-}
+      - DOCKER_HOST=unix:///var/run/docker.sock
+      - AWS_ACCESS_KEY_ID=local
+      - AWS_SECRET_ACCESS_KEY=local
+      - AWS_DEFAULT_REGION=sa-east-1
+      - DEFAULT_REGION=sa-east-1
+    volumes:
+      - "${TMPDIR:-/tmp/localstack}:/tmp/localstack"
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    networks:
+      - local
+
+networks:
+  local:
