@@ -4,10 +4,10 @@ import br.com.gabriel.carddatabase.core.domain.Card
 import br.com.gabriel.carddatabase.infra.dynamodb.entity.converter.toDoman
 import br.com.gabriel.carddatabase.infra.dynamodb.repository.CardRepository
 import br.com.gabriel.carddatabase.integration.BaseIntegrationTest
-import java.time.LocalDateTime
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
+import java.time.LocalDateTime
 
 class CardRepositoryTest : BaseIntegrationTest() {
 
@@ -26,6 +26,6 @@ class CardRepositoryTest : BaseIntegrationTest() {
         codigo = "3445677",
         descricao = "dragão_branco",
         createdAt = LocalDateTime.now(),
-        updatedAt = LocalDateTime.now()
+        updatedAt = LocalDateTime.now(),
     )
 }

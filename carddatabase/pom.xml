@@ -16,6 +16,8 @@
 	<properties>
 		<java.version>17</java.version>
 		<kotlin.version>1.7.22</kotlin.version>
+		<spring-cloud-version>2.2.6.RELEASE</spring-cloud-version>
+		<open-tracing-version>0.1.1</open-tracing-version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -64,7 +66,25 @@
 			<version>5.1.0</version>
 		</dependency>
 
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-aws-messaging</artifactId>
+			<version>${spring-cloud-version}</version>
+		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/io.opentracing.contrib/opentracing-aws-sdk -->
+		<dependency>
+			<groupId>io.opentracing.contrib</groupId>
+			<artifactId>opentracing-aws-sdk</artifactId>
+			<version>${open-tracing-version}</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-aws-messaging -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-aws-messaging</artifactId>
+			<version>2.2.6.RELEASE</version>
+		</dependency>
 
 		<dependency>
 			<groupId>io.micrometer</groupId>
